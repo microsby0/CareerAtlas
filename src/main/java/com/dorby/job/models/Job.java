@@ -3,20 +3,36 @@ package com.dorby.job.models;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.ZonedDateTime;
+
 @JsonAutoDetect
 public class Job {
 
     @JsonProperty
-    private String name;
-    @JsonProperty
     private String id;
+    @JsonProperty
+    private JobSource source;
+    @JsonProperty
+    private String company;
+    @JsonProperty
+    private String positionTitle;
+    @JsonProperty
+    private ZonedDateTime createdAt;
+    @JsonProperty
+    private ZonedDateTime updateAt;
 
-    private String password;
-
-    public Job(String name, String id, String password)
+    public Job(String id,
+               JobSource source,
+               String company,
+               String positionTitle,
+               ZonedDateTime createdAt,
+               ZonedDateTime updateAt)
     {
-        this.name = name;
         this.id = id;
-        this.password = password;
+        this.source = source;
+        this.company = company;
+        this.positionTitle = positionTitle;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
     }
 }
